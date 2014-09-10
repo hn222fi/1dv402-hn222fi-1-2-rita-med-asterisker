@@ -68,5 +68,23 @@ namespace _1_2_rita_med_asterisker {
                 return ResourceManager.GetString("EndQuestion_Prompt", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FEL! Det inmatade värdet är inte ett udda heltal mellan 1 och {0}..
+        /// </summary>
+        internal static string Error_Message {
+            get {
+                return ResourceManager.GetString("Error_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ange det udda antalet asterisker &lt;max {0}&gt; i diamantens midja:.
+        /// </summary>
+        internal static string NumberAsteriskQuestion_Prompt {
+            get {
+                return ResourceManager.GetString("NumberAsteriskQuestion_Prompt", resourceCulture);
+            }
+        }
     }
 }

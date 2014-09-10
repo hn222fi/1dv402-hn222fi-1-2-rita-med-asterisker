@@ -11,9 +11,12 @@ namespace _1_2_rita_med_asterisker
 
         static void Main(string[] args)
         {
+            //Deklarerar lokala variabler
+            byte maxWidth = 79;
+
             do
             {
-
+                ReadOddByte(String.Format(Strings.NumberAsteriskQuestion_Prompt, maxWidth),maxWidth);
             }
             while(IsContinuing());
         }
@@ -40,6 +43,33 @@ namespace _1_2_rita_med_asterisker
         /// <returns>Ett udda heltal av typen byte</returns>
         private static byte ReadOddByte(String prompt=null,byte maxValue = 255)
         {
+            // Deklarerar lokal variabel
+            byte readValue = 0;
+
+            // Läser in och returnerar en byte
+            while (true)
+            {
+                try
+                {
+                    Console.Write(prompt);
+                    readValue = byte.Parse(Console.ReadLine());
+                    if (readValue > maxValue)
+                    {
+                        throw new ApplicationException();
+                    }
+                    return readValue;
+                }
+                catch
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine();         
+                    Console.WriteLine(String.Format(Strings.Error_Message, maxValue));
+                    Console.WriteLine();   
+                    Console.ResetColor();
+                }
+            }
+            
             return 255;
         }
         /// <summary>

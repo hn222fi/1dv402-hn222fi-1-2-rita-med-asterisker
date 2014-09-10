@@ -120,4 +120,10 @@
   <data name="EndQuestion_Prompt" xml:space="preserve">
     <value>Tryck tangent för att fortsätta - Esc avslutar.</value>
   </data>
+  <data name="Error_Message" xml:space="preserve">
+    <value>FEL! Det inmatade värdet är inte ett udda heltal mellan 1 och {0}.</value>
+  </data>
+  <data name="NumberAsteriskQuestion_Prompt" xml:space="preserve">
+    <value>Ange det udda antalet asterisker &lt;max {0}&gt; i diamantens midja:</value>
+  </data>
 </root>
