@@ -53,7 +53,7 @@ namespace _1_2_rita_med_asterisker
                 {
                     Console.Write(prompt);
                     readValue = byte.Parse(Console.ReadLine());
-                    if (readValue > maxValue)
+                    if (readValue > maxValue || readValue % 2 ==0)
                     {
                         throw new ApplicationException();
                     }
@@ -70,7 +70,7 @@ namespace _1_2_rita_med_asterisker
                 }
             }
             
-            return 255;
+            return readValue;
         }
         /// <summary>
         /// Ritar ut diamanten
