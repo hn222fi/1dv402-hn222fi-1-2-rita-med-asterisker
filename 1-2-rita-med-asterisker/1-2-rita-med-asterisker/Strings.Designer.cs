@@ -59,5 +59,14 @@ namespace _1_2_rita_med_asterisker {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tryck tangent för att fortsätta - Esc avslutar..
+        /// </summary>
+        internal static string EndQuestion_Prompt {
+            get {
+                return ResourceManager.GetString("EndQuestion_Prompt", resourceCulture);
+            }
+        }
     }
 }

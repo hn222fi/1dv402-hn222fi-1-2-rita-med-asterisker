@@ -11,7 +11,11 @@ namespace _1_2_rita_med_asterisker
 
         static void Main(string[] args)
         {
+            do
+            {
 
+            }
+            while(IsContinuing());
         }
         /// <summary>
         /// Kollar om användaren vill avsluta programmet eller fortsätta köra programmet en gång till
@@ -19,7 +23,14 @@ namespace _1_2_rita_med_asterisker
         /// <returns>Ett boolean värde</returns>
         private static bool IsContinuing()
         {
-            return true;
+            Console.WriteLine("\n");
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine(Strings.EndQuestion_Prompt);
+            Console.ResetColor();
+            Console.WriteLine("\n");
+            
+            return (Console.ReadKey().Key != ConsoleKey.Escape);
         }
         /// <summary>
         /// Ska läsa in ett udda heltal av typen byte från användaren
