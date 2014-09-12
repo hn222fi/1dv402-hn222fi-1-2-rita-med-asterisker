@@ -87,16 +87,16 @@ namespace _1_2_rita_med_asterisker
             // Anropar metoden som ritar en rad i diamanten lika många gånger som variabeln maxCount anger
             for (int i = 0; i < maxCount; i++)
             {
-                RenderRow((int)maxCount, i);
+                RenderRow2((int)maxCount, i);
             }
 
         }
         /// <summary>
-        /// Ritar ut en rad i diamanten
+        /// Ritar ut en rad i diamanten (Alternativ 1)
         /// </summary>
         /// <param name="maxCount">Midjans läng (längsta raden asterisker)</param>
         /// <param name="asteriskCount">Raden som ritas ut nummer</param>
-        private static void RenderRow(int maxCount, int asteriskCount)
+        private static void RenderRow1(int maxCount, int asteriskCount)
         {
             // Påbörjar ny rad
             Console.WriteLine();
@@ -109,8 +109,7 @@ namespace _1_2_rita_med_asterisker
                 // 1. Om kolumnens nummer är mindre än mittkolumnen minus radens nummer så ritas mellanslag (Ritar ut mellanslag till vänster om *)
                 // absoultbeloppsfunktionen gör så att radnummer större än mittradens nummer ger samma blanka positioner till vänster om asteriskerna
                 // 2. Om kolumnens nummer är större eller lika med skillnaden mellan mittkolumnen minus radens nummer så ritas mellanslag (Ritar ut mellanslag till höger om *)
-                               if (i < Math.Abs(maxCount / 2 - asteriskCount)
-                    || i >= maxCount - Math.Abs(maxCount / 2 - asteriskCount))
+                if (i < Math.Abs(maxCount / 2 - asteriskCount) || i >= maxCount - Math.Abs(maxCount / 2 - asteriskCount))
                 {
                     Console.Write(" ");
                 }
@@ -120,6 +119,31 @@ namespace _1_2_rita_med_asterisker
                 }
             }
         }
-           
+
+        /// <summary>
+        /// Ritar ut en rad i diamanten (Alternativ 2)
+        /// </summary>
+        /// <param name="maxCount">Midjans läng (längsta raden asterisker)</param>
+        /// <param name="asteriskCount">Raden som ritas ut nummer</param>
+        private static void RenderRow2(int maxCount, int asteriskCount)
+        {
+            // Påbörjar ny rad
+            Console.WriteLine();
+
+            // Ritar ut antingen * eller tomt mellanslag på varje position(kolumn) i raden som är maxCount stycken
+            for (int i = 0; i < maxCount; i++)
+            {
+                if (Math.Abs(maxCount / 2 - asteriskCount) <= i && i < maxCount - Math.Abs(maxCount / 2 - asteriskCount))
+                {
+                    Console.Write("*");
+                }
+                else
+                {
+                    Console.Write(" ");
+                }
+            }
+
+        }
+
     }
 }
