@@ -95,7 +95,7 @@ namespace _1_2_rita_med_asterisker
         /// Ritar ut en rad i diamanten
         /// </summary>
         /// <param name="maxCount">Midjans läng (längsta raden asterisker)</param>
-        /// <param name="asteriskCount">Längden på raden</param>
+        /// <param name="asteriskCount">Raden som ritas ut nummer</param>
         private static void RenderRow(int maxCount, int asteriskCount)
         {
             // Påbörjar ny rad
@@ -105,17 +105,12 @@ namespace _1_2_rita_med_asterisker
             for (int i = 0; i < maxCount; i++)
             {
                 // Kontrollerar om det ska vara ett mellanslag som ritas ut, annars ritas *
-                // Fyra stycken villkor kontrolleras
-                // 1. Om kolumnens nummer är mindre än mittkolumnen minus radens nummer så ritas ingen * (Ritar ut mellanslag till vänster om *)
-                // 2. Om kolumnens nummer är större eller lika med skillnaden mellan mittkolumnen minus radens nummer så ritas ingen * (Ritar ut mellanslag till höger om *)
-                // De två övre kraven ritar den övre halvan av diamanten (pyramiden)
-                // Nästa två krav ritar den nedra halvan och är mostsatta men aktiveras bara om radens nummer är större än halva diamantens höjd
-                // 3. Eftersom radens nummer nu är mer än hälften av totala antalet rader så blir det omvänt förhållande från 1 för att få samma värden
-                // 4. Motsatsen till 2 med samma resonemang som 3.
-                if (i < maxCount / 2 - asteriskCount
-                    || i >= maxCount - (maxCount / 2 - asteriskCount)
-                    || (asteriskCount > maxCount / 2 && i < asteriskCount - maxCount / 2)
-                    || (asteriskCount > maxCount / 2 && i >= maxCount - (asteriskCount - maxCount / 2)))
+                // Två villkor konrolleras
+                // 1. Om kolumnens nummer är mindre än mittkolumnen minus radens nummer så ritas mellanslag (Ritar ut mellanslag till vänster om *)
+                // absoultbeloppsfunktionen gör så att radnummer större än mittradens nummer ger samma blanka positioner till vänster om asteriskerna
+                // 2. Om kolumnens nummer är större eller lika med skillnaden mellan mittkolumnen minus radens nummer så ritas mellanslag (Ritar ut mellanslag till höger om *)
+                               if (i < Math.Abs(maxCount / 2 - asteriskCount)
+                    || i >= maxCount - Math.Abs(maxCount / 2 - asteriskCount))
                 {
                     Console.Write(" ");
                 }
@@ -124,8 +119,7 @@ namespace _1_2_rita_med_asterisker
                     Console.Write("*");
                 }
             }
-
-
         }
+           
     }
 }
