@@ -12,7 +12,7 @@ namespace _1_2_rita_med_asterisker
         static void Main(string[] args)
         {
             //Deklarerar lokala variabler
-            byte maxWidth = 79;
+            const byte maxWidth = 79;
             byte diamondSize = 0;
 
             do
